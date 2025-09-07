@@ -1,4 +1,4 @@
-# Patrix-CTM-Override
+# Patrix-CTM-Compatibility-Override
 
 **A tiny utility that builds a mini resource-pack to replace Patrix’s CTM “placeholder” textures (the ones that say _“ENABLE CONNECT TEXTURE”_) with real textures — so other mods that bypass CTM stop showing that error image.**
 
