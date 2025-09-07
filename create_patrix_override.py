@@ -14,7 +14,7 @@
 
 import zipfile, os, re, sys, tempfile, shutil, json
 
-PACK_FORMAT = 64  # selon ton instruction
+PACK_FORMAT = 64
 DESC = "Overrides for mods breaking CTM with Patrix \nBy Koorg"
 
 TAILS = {
@@ -54,12 +54,10 @@ def main():
     block_dir = os.path.join(build_dir, "assets", "minecraft", "textures", "block")
     os.makedirs(block_dir, exist_ok=True)
 
-    # pack.mcmeta
     mcmeta = {"pack": {"pack_format": PACK_FORMAT, "description": DESC}}
     with open(os.path.join(build_dir, "pack.mcmeta"), "w", encoding="utf-8") as f:
         json.dump(mcmeta, f, ensure_ascii=False, indent=2)
 
-    # extractions ciblées
     with zipfile.ZipFile(in_zip, "r") as zf:
         mapping = {}
         for key, tail in TAILS.items():
@@ -76,7 +74,6 @@ def main():
             with zf.open(entry) as src, open(target_path, "wb") as dst:
                 shutil.copyfileobj(src, dst)
 
-    # zippage (contenu à la racine du zip : pack.mcmeta + assets/)
     with zipfile.ZipFile(out_zip, "w", compression=zipfile.ZIP_DEFLATED) as outz:
         for root, _, files in os.walk(build_dir):
             for fn in files:
