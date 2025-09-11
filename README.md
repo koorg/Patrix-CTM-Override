@@ -25,7 +25,7 @@ This project **builds a tiny override pack** that replaces a few critical vanill
 
 ## What the tool does
 
-Given a Patrix `.zip` (basic or addon), the scripts:
+Given a Patrix `.zip` (basic archive only), the scripts:
 
 1. **Detect the resolution** (`32x`, `64x`, `128x`, or `256x`) from the filename.
 2. **Extract specific Patrix CTM tiles** (e.g.,  
